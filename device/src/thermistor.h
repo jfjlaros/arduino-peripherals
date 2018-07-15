@@ -1,12 +1,12 @@
-#ifndef AnalogTemp_h
-#define AnalogTemp_h
+#ifndef Thermistor_h
+#define Thermistor_h
 
 #include <Arduino.h>
 
 
-class AnalogTemp {
+class Thermistor {
   public:
-    AnalogTemp(int, double, bool);
+    Thermistor(int, double, bool);
     int rawRead(void);
     double read(void),
            celsius(void),

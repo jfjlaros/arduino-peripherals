@@ -1,4 +1,4 @@
-#include "analogtemp.h"
+#include "thermistor.h"
 
 
 /**
@@ -8,7 +8,7 @@
  * @arg {double} resistor - Resistor value in Ohms.
  * @arg {bool} pullup - Pull up resistor.
  */
-AnalogTemp::AnalogTemp(int pin, double resistor, bool pullup) {
+Thermistor::Thermistor(int pin, double resistor, bool pullup) {
   _pin = pin;
   _resistor = resistor;
   _pullup = pullup;
@@ -21,7 +21,7 @@ AnalogTemp::AnalogTemp(int pin, double resistor, bool pullup) {
   }
 }
 
-int AnalogTemp::rawRead(void) {
+int Thermistor::rawRead(void) {
   return analogRead(_pin);
 }
 
@@ -32,14 +32,14 @@ int AnalogTemp::rawRead(void) {
  *
  * @return {double} - Temperature in degrees Kelvin.
  */
-double AnalogTemp::read(void) {
+double Thermistor::read(void) {
   double temp;
 
   if (_pullup) {
-    temp = log(_resistor / (1024.0 / rawRead() - 1.0));
+    temp = log(_resistor / (1024.0 / (double)rawRead() - 1.0));
   }
   else {
-    temp = log(_resistor * (1024.0 / rawRead() - 1.0));
+    temp = log(_resistor * (1024.0 / (double)rawRead() - 1.0));
   }
 
   return 1.0 / (
@@ -48,10 +48,10 @@ double AnalogTemp::read(void) {
     0.0000000876741 * pow(temp, 3));
 }
 
-double AnalogTemp::celsius(void) {
+double Thermistor::celsius(void) {
   return read() - 273.15;
 }
 
-double AnalogTemp::fahrenheit(void) {
+double Thermistor::fahrenheit(void) {
   return (read() - 273.15) * 1.8 + 32.0;
 }
