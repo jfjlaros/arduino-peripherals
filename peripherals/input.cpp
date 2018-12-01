@@ -41,3 +41,21 @@ byte Input::analogRead(void) {
 bool Input::digitalRead(void) {
   return ::digitalRead(_pin) ^ _invert;
 }
+
+/**
+ * Check whether the state is HIGH.
+ *
+ * @return {bool} - true if the state is HIGH, false otherwise.
+ */
+bool Input::on(void) {
+  return digitalRead() == HIGH;
+}
+
+/**
+ * Check whether the state is LOW.
+ *
+ * @return {bool} - true if the state is LOW, false otherwise.
+ */
+bool Input::off(void) {
+  return digitalRead() == LOW;
+}

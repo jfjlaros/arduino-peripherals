@@ -9,7 +9,9 @@ class Input {
     Input(void) {}
     Input(byte, bool=false, bool=false);
     byte analogRead(void);
-    bool digitalRead(void);
+    bool digitalRead(void),
+         on(void),
+         off(void);
   protected:
     byte _pin;
     bool _pullUp;
