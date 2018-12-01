@@ -36,8 +36,8 @@ byte Input::analogRead(void) {
 /**
  * Read a digital value.
  *
- * @return {byte} - Value.
+ * @return {bool} - Value.
  */
-byte Input::digitalRead(void) {
+bool Input::digitalRead(void) {
   return ::digitalRead(_pin) ^ _invert;
 }

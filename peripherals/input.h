@@ -8,8 +8,8 @@ class Input {
   public:
     Input(void) {}
     Input(byte, bool=false, bool=false);
-    byte analogRead(void),
-         digitalRead(void);
+    byte analogRead(void);
+    bool digitalRead(void);
   protected:
     byte _pin;
     bool _pullUp;

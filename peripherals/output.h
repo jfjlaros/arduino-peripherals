@@ -9,7 +9,7 @@ class Output {
     Output(void) {}
     Output(byte, bool=false);
     void analogWrite(byte),
-         digitalWrite(byte),
+         digitalWrite(bool),
          on(void),
          off(void);
   protected:

@@ -32,9 +32,9 @@ void Output::analogWrite(byte value) {
 /**
  * Write a digital value.
  *
- * @arg {byte} value - Value.
+ * @arg {bool} value - Value.
  */
-void Output::digitalWrite(byte value) {
+void Output::digitalWrite(bool value) {
   ::digitalWrite(_pin, value ^ _invert);
 }
 
