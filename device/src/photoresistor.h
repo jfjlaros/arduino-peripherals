@@ -8,7 +8,7 @@ class PhotoResistor {
   public:
     PhotoResistor(int);
     int read(void);
-    double lux(void);
+    byte percentage(void);
   private:
     int _pin;
 };
