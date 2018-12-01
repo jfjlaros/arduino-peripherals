@@ -1,25 +1,19 @@
-#include <Arduino.h>
-
 #include "buzzer.h"
 
 
-Buzzer::Buzzer(byte pin, bool invert) {
-  _pin = pin;
-  _invert = invert;
-
-  pinMode(_pin, OUTPUT);
-  _disable();
-}
-
-void Buzzer::_disable(void) {
-  digitalWrite(_pin, LOW ^ _invert);
-}
-
+/**
+ * Generate a tone with a given frequency.
+ *
+ * @arg {unsigned long} frequency - Frequency.
+ */
 void Buzzer::tone(unsigned long frequency) {
   ::tone(_pin, frequency);
 }
 
-void Buzzer::off(void) {
+/**
+ * Turn the buzzer off.
+ */
+void Buzzer::noTone(void) {
   ::noTone(_pin);
-  _disable();
+  off();
 }

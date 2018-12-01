@@ -4,25 +4,14 @@
 /**
  * Constructor.
  *
- * @arg {int} pin - Analog pin number.
- * @arg {double} resistor - Resistor value in Ohms.
- * @arg {bool} pullup - Pull up resistor.
+ * @arg {byte} pin - Analog pin number.
+ * @arg {float} resistor - Resistor value in Ohm.
+ * @arg {bool} invert - Invert analogue read behaviour.
+ * @arg {bool} pullUp - Pull up resistor.
  */
-Thermistor::Thermistor(int pin, double resistor, bool pullup) {
-  _pin = pin;
+Thermistor::Thermistor(byte pin, float resistor, bool invert, bool pullUp)
+    : Input(pin, invert, pullUp) {
   _resistor = resistor;
-  _pullup = pullup;
-
-  if (_pullup) {
-    pinMode(_pin, INPUT_PULLUP);
-  }
-  else {
-    pinMode(_pin, INPUT);
-  }
-}
-
-int Thermistor::rawRead(void) {
-  return analogRead(_pin);
 }
 
 /**
@@ -30,16 +19,16 @@ int Thermistor::rawRead(void) {
  *
  * Use the Steinhart–Hart equation to convert from resistance to temperature.
  *
- * @return {double} - Temperature in degrees Kelvin.
+ * @return {float} - Temperature in degrees Kelvin.
  */
-double Thermistor::read(void) {
-  double temp;
+float Thermistor::kelvin(void) {
+  float temp;
 
-  if (_pullup) {
-    temp = log(_resistor / (1024.0 / (double)rawRead() - 1.0));
+  if (_pullUp) {
+    temp = log(_resistor / (1024.0 / (float)analogRead() - 1.0));
   }
   else {
-    temp = log(_resistor * (1024.0 / (double)rawRead() - 1.0));
+    temp = log(_resistor * (1024.0 / (float)analogRead() - 1.0));
   }
 
   return 1.0 / (
@@ -48,10 +37,20 @@ double Thermistor::read(void) {
     0.0000000876741 * pow(temp, 3));
 }
 
-double Thermistor::celsius(void) {
-  return read() - 273.15;
+/**
+ * Report the temperature in degrees Celsius.
+ *
+ * @return {float} - Temperature in degrees Celsius.
+ */
+float Thermistor::celsius(void) {
+  return kelvin() - 273.15;
 }
 
-double Thermistor::fahrenheit(void) {
-  return (read() - 273.15) * 1.8 + 32.0;
+/**
+ * Report the temperature in degrees Fahrenheit.
+ *
+ * @return {float} - Temperature in degrees Fahrenheit.
+ */
+float Thermistor::fahrenheit(void) {
+  return celsius() * 1.8 + 32.0;
 }

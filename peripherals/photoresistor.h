@@ -1,16 +1,11 @@
-#ifndef PhotoResistor_h
-#define PhotoResistor_h
+#ifndef __PHOTORESISTOR_H__
+#define __PHOTORESISTOR_H__
 
-#include <Arduino.h>
+#include "input.h"
 
 
-class PhotoResistor {
-  public:
-    PhotoResistor(int);
-    int read(void);
-    byte percentage(void);
-  private:
-    int _pin;
+class PhotoResistor : public Input {
+  using Input::Input;
 };
 
 #endif

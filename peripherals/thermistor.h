@@ -1,20 +1,18 @@
-#ifndef Thermistor_h
-#define Thermistor_h
+#ifndef __THERMISTOR_H__
+#define __THERMISTOR_H__
 
-#include <Arduino.h>
+#include "input.h"
 
 
-class Thermistor {
+class Thermistor : public Input {
   public:
-    Thermistor(int, double, bool);
-    int rawRead(void);
-    double read(void),
-           celsius(void),
-           fahrenheit(void);
+    Thermistor(void) {}
+    Thermistor(byte, float, bool=false, bool=false);
+    float kelvin(void),
+          celsius(void),
+          fahrenheit(void);
   private:
-    int _pin;
-    double _resistor;
-    bool _pullup;
+    float _resistor;
 };
 
 #endif

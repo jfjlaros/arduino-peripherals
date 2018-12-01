@@ -1,18 +1,14 @@
 #ifndef __LED_H__
 #define __LED_H__
 
-class LED {
+#include "output.h"
+
+
+class LED : public Output {
+  using Output::Output;
   public:
-    LED(void) {};
-    LED(byte, bool=false);
-    void on(void),
-         off(void),
-         setBrightness(byte),
-         pulse(int, int),
+    void pulse(int, int),
          signal(byte);
-  private:
-    byte _pin;
-    bool _invert;
 };
 
 #endif
