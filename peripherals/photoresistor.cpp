@@ -2,15 +2,15 @@
 
 
 PhotoResistor::PhotoResistor(int pin) {
-  pinMode(pin, INPUT_PULLUP);
   _pin = pin;
+
+  pinMode(_pin, INPUT_PULLUP);
 }
 
 int PhotoResistor::read(void) {
   return analogRead(_pin);
 }
 
-double PhotoResistor::lux(void) {
-  // TODO: Fix this formula.
-  return pow(10, (double)(1023 - read()) / 1024.0);
+byte PhotoResistor::percentage(void) {
+  return 100 - (byte)(read() * 100 / 1023);
 }

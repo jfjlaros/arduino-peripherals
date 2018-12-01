@@ -14,10 +14,10 @@ Thermistor::Thermistor(int pin, double resistor, bool pullup) {
   _pullup = pullup;
 
   if (_pullup) {
-    pinMode(pin, INPUT_PULLUP);
+    pinMode(_pin, INPUT_PULLUP);
   }
   else {
-    pinMode(pin, INPUT);
+    pinMode(_pin, INPUT);
   }
 }
 
