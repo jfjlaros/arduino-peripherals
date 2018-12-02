@@ -9,8 +9,6 @@ Arduino peripherals.
    :target: https://github.com/jfjlaros/arduino-peripherals/releases
 .. image:: https://img.shields.io/github/release/jfjlaros/arduino-peripherals.svg
    :target: https://github.com/jfjlaros/arduino-peripherals/releases
-.. image:: https://img.shields.io/pypi/v/arduino-simple-rpc.svg
-   :target: https://pypi.org/project/arduino-simple-rpc/
 .. image:: https://img.shields.io/github/languages/code-size/jfjlaros/arduino-peripherals.svg
    :target: https://github.com/jfjlaros/arduino-peripherals
 .. image:: https://img.shields.io/github/languages/count/jfjlaros/arduino-peripherals.svg
