@@ -5,7 +5,7 @@
  * Constructor.
  *
  * @arg {byte} pin - Output pin.
- * @arg {bool} invert - Reverse output behaviour.
+ * @arg {bool} invert - Invert output behaviour.
  */
 Output::Output(byte pin, bool invert) {
   _pin = pin;

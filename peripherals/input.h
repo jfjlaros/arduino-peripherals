@@ -8,7 +8,7 @@ class Input {
   public:
     Input(void) {}
     Input(byte, bool=false, bool=false);
-    byte analogRead(void);
+    short int analogRead(void);
     bool digitalRead(void),
          on(void),
          off(void);

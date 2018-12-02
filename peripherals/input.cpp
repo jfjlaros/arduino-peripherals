@@ -5,7 +5,7 @@
  * Constructor.
  *
  * @arg {byte} pin - Input pin.
- * @arg {bool} invert - Reverse input behaviour.
+ * @arg {bool} invert - Invert input behaviour.
  * @arg {bool} pullUp - Use internal pull up resistor.
  */
 Input::Input(byte pin, bool invert, bool pullUp) {
@@ -24,9 +24,9 @@ Input::Input(byte pin, bool invert, bool pullUp) {
 /**
  * Read an analogue value.
  *
- * @return {byte} - Value.
+ * @return {short int} - Value.
  */
-byte Input::analogRead(void) {
+short int Input::analogRead(void) {
   if (_invert) {
     return 1023 - ::analogRead(_pin);
   }
