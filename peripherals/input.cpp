@@ -13,7 +13,7 @@ Input::Input(byte pin, bool invert, bool pullUp) {
   _invert = invert;
   _pullUp = pullUp;
 
-  if (pullUp) {
+  if (_pullUp) {
     pinMode(_pin, INPUT_PULLUP);
   }
   else {

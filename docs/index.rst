@@ -1,5 +1,3 @@
-.. simpleRPC documentation.
-
 .. include:: ../README.rst
 
 .. toctree::

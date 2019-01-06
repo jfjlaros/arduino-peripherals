@@ -182,7 +182,7 @@ brightness.
 PhotoResistor
 -------------
 
-Include the header file to use the button library.
+Include the header file to use the photoresistor library.
 
 .. code:: cpp
 
@@ -207,7 +207,7 @@ The value of the photoresistor can be read with the ``analogRead()`` function.
 Thermistor
 ----------
 
-Include the header file to use the button library.
+Include the header file to use the thermistor library.
 
 .. code:: cpp
 
@@ -234,3 +234,31 @@ The temperature can be read using various functions.
     thermistor.kelvin();
     thermistor.celsius();
     thermistor.fahrenheit();
+
+
+Microphone
+----------
+
+Include the header file to use the microphone library.
+
+.. code:: cpp
+
+    #include <microphone.h>
+
+Example
+^^^^^^^
+
+We make a ``Microphone`` instance that uses pin ``A4`` as follows.
+
+.. code:: cpp
+
+    Microphone microphone(A4);
+
+The sound level of the microphone can be read with the ``soundLevel()``
+function which takes a number of samples and determines the range of these
+samples. If we want to determine the sound level based on 1024 samples, we do
+the following.
+
+.. code:: cpp
+
+    microphone.soundLevel(1024);
