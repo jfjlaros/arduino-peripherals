@@ -1,8 +1,8 @@
 Usage
 =====
 
-Generic input an output
------------------------
+Generic input and output
+------------------------
 
 Most of the libraries described here inherit from either a generic input or
 output class.
